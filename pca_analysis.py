@@ -4,4 +4,6 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+from read_csv import Database
 
+data = Database("training_short")
