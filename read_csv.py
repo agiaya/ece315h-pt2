@@ -61,12 +61,10 @@ class Subject:
         return self.__expression
     def get_dimensions(self):
         list = []
-        n = 10
+        n = 68
         for i in range(n):
-            print(i)
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
-        print(list)
         return list
 
 
@@ -110,6 +108,8 @@ class Database:
 
 
 training = Database("training_short")
+
+
 
 #x,y = training.get_listsubjects()[10].get_points()
 
