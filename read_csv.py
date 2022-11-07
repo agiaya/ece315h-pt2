@@ -18,12 +18,12 @@ class Subject:
         self.__expression = int(expression)
         self.__valence = float(valence)
         self.__arousal = float(arousal)
-        self.important = []
-        self.add_dimension(63,67) #mouth
-        self.add_dimension(44,48) #eye 1
-        self.add_dimension(45,47) #eye 1
-        self.add_dimension(39,43) #eye 2
-        self.add_dimension(40,42) #eye 2
+        self.important = self.get_dimensions()
+        #self.add_dimension(63,67) #mouth
+        #self.add_dimension(44,48) #eye 1
+        #self.add_dimension(45,47) #eye 1
+        #self.add_dimension(39,43) #eye 2
+        #self.add_dimension(40,42) #eye 2
         
 
         
@@ -59,6 +59,16 @@ class Subject:
         self.important.append(d)
     def get_expression(self):
         return self.__expression
+    def get_dimensions(self):
+        list = []
+        n = 10
+        for i in range(n):
+            print(i)
+            for j in range(i,n):
+                list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
+        print(list)
+        return list
+
 
     @staticmethod
     def distance(p1,p2):
