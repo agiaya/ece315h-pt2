@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+from mpl_toolkits.mplot3d import Axes3D
 from read_csv import Database
 
 data = Database("training_short")
@@ -22,8 +23,19 @@ x = principal.transform(Scaled_data)
 print(x)
 #print(x.shape)
 
-plt.figure(figsize=(10,10))
-plt.scatter(x[:,0],x[:,1],c=data_result,cmap='plasma')
-plt.xlabel('pc1')
-plt.ylabel('pc2')
+#plt.figure(figsize=(10,10))
+#plt.scatter(x[:,0],x[:,1],c=data_result,cmap='plasma')
+#plt.xlabel('pc1')
+#plt.ylabel('pc2')
+#plt.show()
+fig = plt.figure(figsize=(10,10))
+ 
+# choose projection 3d for creating a 3d graph
+axis = fig.add_subplot(111, projection='3d')
+ 
+# x[:,0]is pc1,x[:,1] is pc2 while x[:,2] is pc3
+axis.scatter(x[:,0],x[:,1],x[:,2], c=data_result,cmap='plasma')
+axis.set_xlabel("PC1", fontsize=10)
+axis.set_ylabel("PC2", fontsize=10)
+axis.set_zlabel("PC3", fontsize=10)
 plt.show()
