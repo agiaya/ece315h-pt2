@@ -95,5 +95,5 @@ training = Database("training_short")
 # test again
 
 
-for subject in training.get_listsubjects():
-    print(subject.important)
+#for subject in training.get_listsubjects():
+    #print(subject.important)
