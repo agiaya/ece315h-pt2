@@ -101,7 +101,9 @@ class Database:
         list = []
         for subject in self.get_listsubjects():
             list.append(subject.important)
-        return list
+        array = np.array(list)
+        transpose = np.transpose(array)
+        return transpose
     def return_result(self):
         list = []
         for subject in self.get_listsubjects():
