@@ -66,6 +66,8 @@ class Subject:
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
         return list
+    def get_valence(self):
+        return self.__valence
 
 
     @staticmethod
@@ -103,7 +105,7 @@ class Database:
     def return_result(self):
         list = []
         for subject in self.get_listsubjects():
-            list.append(subject.get_expression())
+            list.append(subject.get_valence())
         return list
 
 
