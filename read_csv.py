@@ -85,6 +85,12 @@ class Database:
         file.close()
     def get_listsubjects(self):
         return self.__listsubjects
+    def return_array(self):
+        list = []
+        for subject in self.get_listsubjects():
+            list.append(subject.important)
+        return list
+
 
 training = Database("training_short")
 
