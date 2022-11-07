@@ -88,7 +88,7 @@ class Database:
     def get_listsubjects(self):
         return self.__listsubjects
 
-training = Database("training")
+training = Database("training_short")
 
 #x,y = training.get_listsubjects()[10].get_points()
 
