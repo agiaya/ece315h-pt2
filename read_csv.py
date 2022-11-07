@@ -72,7 +72,6 @@ class Database:
         self.readfile()
     def readfile(self):
         file = open(self.__filename, 'r')
-        i = 1
         firstline = True
         for line in file:
             if firstline:
@@ -82,8 +81,6 @@ class Database:
                 line.rstrip()
                 subDirectory_filePath, face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal = line.split(',')
                 self.__listsubjects.append(Subject("subject" + str(i), subDirectory_filePath, face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal))
-                i += 1
-            if i > 100: break
         file.close()
     def get_listsubjects(self):
         return self.__listsubjects
