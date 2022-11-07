@@ -21,6 +21,7 @@ principal.fit(Scaled_data)
 x = principal.transform(Scaled_data)
 
 print(x)
+#np.savetxt("x.csv", x, delimiter=" ")
 #print(x.shape)
 
 #plt.figure(figsize=(10,10))
