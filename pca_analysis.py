@@ -21,7 +21,7 @@ print(x)
 #print(x.shape)
 
 plt.figure(figsize=(10,10))
-plt.scatter(x[:,0],x[:,1],c=data.return_results(),cmap='plasma')
+plt.scatter(x[:,0],x[:,1],c=data.return_result(),cmap='plasma')
 plt.xlabel('pc1')
 plt.ylabel('pc2')
 plt.show()
