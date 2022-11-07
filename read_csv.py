@@ -57,6 +57,8 @@ class Subject:
     def add_dimension(self,index1,index2):
         d = self.distance(self.get_standardized_landmarks()[index1],self.get_standardized_landmarks()[index2])
         self.important.append(d)
+    def get_expression(self):
+        return self.__expression
 
     @staticmethod
     def distance(p1,p2):
@@ -89,6 +91,11 @@ class Database:
         list = []
         for subject in self.get_listsubjects():
             list.append(subject.important)
+        return list
+    def return_result(self):
+        list = []
+        for subject in self.get_listsubjects():
+            list.append(subject.get_expression())
         return list
 
 
