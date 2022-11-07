@@ -6,4 +6,4 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from read_csv import Database
 
-data = Database("training_short")
+data = Database("training_short").return_array()
