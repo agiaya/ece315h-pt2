@@ -21,6 +21,9 @@ class Subject:
         self.__arousal = float(arousal)
         self.important = self.get_dimensions()
 
+    def __str__(self):
+        return self.name
+
     def get_subDirectory_filePath(self):
         return self.__subDirectory_filePath
 
@@ -67,7 +70,7 @@ class Subject:
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
         return list
-        
+
     def get_valence(self):
         return self.__valence
 
@@ -83,6 +86,13 @@ class Database:
         self.__filename = filename + '.csv'
         self.__listsubjects = []
         self.readfile()
+
+    def __str__(self):
+        string = ""
+        for subject in self.get_listsubjects():
+            string += str(subject) + '\n'
+        return string
+
     def readfile(self):
         file = open(self.__filename, 'r')
         firstline = True
