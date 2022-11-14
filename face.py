@@ -1,3 +1,3 @@
-import dlib as *
+import dlib
 from read_csv import Database
 from read_csv import Subject
