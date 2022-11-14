@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 class Subject:
+
     def __init__(self, name, subDirectory_filePath, face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal):
         self.name = name
         self.__subDirectory_filePath = subDirectory_filePath
@@ -19,27 +20,23 @@ class Subject:
         self.__valence = float(valence)
         self.__arousal = float(arousal)
         self.important = self.get_dimensions()
-        #self.add_dimension(63,67) #mouth
-        #self.add_dimension(44,48) #eye 1
-        #self.add_dimension(45,47) #eye 1
-        #self.add_dimension(39,43) #eye 2
-        #self.add_dimension(40,42) #eye 2
-        
-
-        
 
     def get_subDirectory_filePath(self):
         return self.__subDirectory_filePath
+
     def identify_facial_landmarks(self, string):
         coordinates = string.rstrip().split(';')
         list = []
         for i in range(0,len(coordinates),2):
             list += [(float(coordinates[i]), float(coordinates[i+1]))]
         return list
+
     def get_facial_landmarks(self):
         return self.__facial_landmarks
+
     def get_standardized_landmarks(self):
         return self.__standardized_landmarks
+
     def standardize_landmarks(self):
         coordinates = []
         for coordinate in self.get_facial_landmarks():
@@ -47,6 +44,7 @@ class Subject:
             y = (coordinate[1] - self.face_y) / self.face_height
             coordinates.append((x,y))
         return coordinates
+
     def get_points(self):
         x = []
         y = []
@@ -54,11 +52,14 @@ class Subject:
             x.append(i[0])
             y.append(-i[1])
         return x,y
+
     def add_dimension(self,index1,index2):
         d = self.distance(self.get_standardized_landmarks()[index1],self.get_standardized_landmarks()[index2])
         self.important.append(d)
+
     def get_expression(self):
         return self.__expression
+
     def get_dimensions(self):
         list = []
         n = 68
@@ -66,6 +67,7 @@ class Subject:
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
         return list
+        
     def get_valence(self):
         return self.__valence
 
