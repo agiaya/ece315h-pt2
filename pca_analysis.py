@@ -19,17 +19,18 @@ Scaled_data = scaling.transform(data_array)
 principal = PCA(n_components = 2)
 principal.fit(Scaled_data)
 x = principal.transform(Scaled_data)
+x = np.transpose(x)
 
-#print(x)
+print(x)
 print(x.shape)
 #np.savetxt("x.csv", x, delimiter=" ")
 #print(x.shape)
 
 plt.figure(figsize=(10,10))
-plt.scatter(x[:,0],x[:,1],c=data_result,cmap='tab20')
+plt.scatter(x[:,0],x[:,1],c=data_result,cmap='plasma')
 plt.xlabel('pc1')
 plt.ylabel('pc2')
-#plt.show()
+plt.show()
 #fig = plt.figure(figsize=(10,10))
  
 # choose projection 3d for creating a 3d graph
