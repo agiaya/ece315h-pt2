@@ -112,7 +112,7 @@ class Database:
     def return_array(self):
         list = []
         for subject in self.get_listsubjects():
-            list.append(subject.important + [subject.get_expression()])
+            list.append(subject.important) # + [subject.get_expression()]
         array = np.array(list)
         return array
     def return_emotion(self):
@@ -124,12 +124,19 @@ class Database:
         emotion_array = np.array(emotion_list)
         return emotion_array
 
+    def return_result(self):
+        list = []
+        for subject in self.get_listsubjects():
+            list.append(subject.get_expression())
+        return np.array(list)
+
+
 
 training = Database("training_short")
 #array1 = np.array([[2,1,2,2],[4,5,5,4]])
-array = training.return_array()
-print(array)
-print(array.shape)
+#array = training.return_array()
+#print(array)
+#print(array.shape)
 
 
 #x,y = training.get_listsubjects()[10].get_points()

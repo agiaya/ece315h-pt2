@@ -8,7 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from read_csv import Database
 
 data = Database("training_short")
-data_array = data.return_array()
+data_array = np.transpose(data.return_array())
 data_result = data.return_result()
 
 scaling = StandardScaler()
@@ -16,18 +16,21 @@ scaling = StandardScaler()
 scaling.fit(data_array)
 Scaled_data = scaling.transform(data_array)
 
-principal = PCA(n_components = 2)
-principal.fit(Scaled_data)
-x = principal.transform(Scaled_data)
-x = np.transpose(x)
+#print(np.mean(Scaled_data),np.std(Scaled_data))
 
-print(x)
-print(x.shape)
+principal = PCA(n_components = 2)
+''''principal.fit(Scaled_data)
+x = principal.transform(Scaled_data)
+x = np.transpose(x)'''
+principal_components = principal.fit_transform(Scaled_data)
+
+print(principal_components)
+print(principal_components.shape)
 #np.savetxt("x.csv", x, delimiter=" ")
 #print(x.shape)
 
 plt.figure(figsize=(10,10))
-plt.scatter(x[:,0],x[:,1],c=data_result,cmap='plasma')
+plt.scatter(principal_components[:,0],principal_components[:,1],cmap='plasma') #c=data_result,
 plt.xlabel('pc1')
 plt.ylabel('pc2')
 plt.show()
