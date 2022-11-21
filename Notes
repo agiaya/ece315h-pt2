@@ -1,3 +1,10 @@
 TSNE --> State of the art of dimensional decomposition
 
 Linear Regression: or Sparse linear regression 
+
+Methods
+lasso
+basis pursuit
+matching pursuit
+
+group sparse linear regression where each emotion uses different coefficients

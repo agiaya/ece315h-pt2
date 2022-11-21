@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from read_csv import *
 
-data = Database("training_short")
+data = Database("training_kindashort")
 data_array = np.transpose(data.return_array())
 data_result = data.return_result()
 

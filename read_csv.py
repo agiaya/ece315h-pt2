@@ -69,9 +69,9 @@ class Subject:
         for i in range(n):
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
-        for i in range(n):
+        '''for i in range(n):
             for j in range(i,n):
-                list.append(self.angle(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
+                list.append(self.angle(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))'''
         return list
 
     def get_valence(self):
@@ -143,7 +143,7 @@ class Database:
             list.append(subject.get_expression())
         return np.array(list)
 
-training = Database("training_short")
+#training = Database("training_short")
 #array1 = np.array([[2,1,2,2],[4,5,5,4]])
 #array = training.return_array()
 #print(array)
