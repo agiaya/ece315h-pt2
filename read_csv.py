@@ -69,7 +69,9 @@ class Subject:
         for i in range(n):
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
-        list = list + [self.get_expression()]
+        for i in range(n):
+            for j in range(i,n):
+                list.append(self.angle(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
         return list
 
     def get_valence(self):
@@ -80,6 +82,12 @@ class Subject:
     def distance(p1,p2):
         mag_squared = (p2[0]-p1[0])**2 + (p2[1]-p1[1])**2
         return mag_squared**(1/2)
+
+    @staticmethod
+    def angle(p1,p2):
+        y = p2[-1] - p1[-1]
+        x = p2[0] - p1[0]
+        return np.arctan(y/x)
 
 
 class Database:
