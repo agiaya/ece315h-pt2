@@ -30,12 +30,13 @@ print(x.shape)
 #np.savetxt("x.csv", x, delimiter=" ")
 #print(x.shape)
 
-'''plt.figure(figsize=(10,10))
-plt.scatter(graph[:,0],graph[:,1],c=data_result,cmap='plasma')
+plt.figure(figsize=(10,10))
+plt.scatter(x[:,0],x[:,1],c=data_result,cmap='plasma')
 plt.xlabel('pc1')
 plt.ylabel('pc2')
-plt.show()'''
-fig = plt.figure(figsize=(10,10))
+plt.show()
+
+'''fig = plt.figure(figsize=(10,10))
  
 # choose projection 3d for creating a 3d graph
 axis = fig.add_subplot(111, projection='3d')
@@ -45,4 +46,4 @@ axis.scatter(x[:,0],x[:,1],x[:,2], c=data_result,cmap='plasma')
 axis.set_xlabel("PC1", fontsize=10)
 axis.set_ylabel("PC2", fontsize=10)
 axis.set_zlabel("PC3", fontsize=10)
-plt.show()
+plt.show()'''
