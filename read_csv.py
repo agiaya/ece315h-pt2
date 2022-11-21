@@ -87,6 +87,10 @@ class Subject:
     def angle(p1,p2):
         y = p2[-1] - p1[-1]
         x = p2[0] - p1[0]
+        if x == 0:
+            if y > 0: return np.pi/2
+            elif y == 0: return 0
+            else: return -1*np.pi/2
         return np.arctan(y/x)
 
 
