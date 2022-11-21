@@ -130,8 +130,6 @@ class Database:
             list.append(subject.get_expression())
         return np.array(list)
 
-
-
 training = Database("training_short")
 #array1 = np.array([[2,1,2,2],[4,5,5,4]])
 #array = training.return_array()
