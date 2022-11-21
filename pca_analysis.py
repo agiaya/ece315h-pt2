@@ -18,30 +18,31 @@ Scaled_data = scaling.transform(data_array)
 
 #print(np.mean(Scaled_data),np.std(Scaled_data))
 
-principal = PCA(n_components = 2)
+principal = PCA(n_components = 3)
 ''''principal.fit(Scaled_data)
 x = principal.transform(Scaled_data)
 x = np.transpose(x)'''
 principal_components = principal.fit_transform(Scaled_data)
+x = np.matmul(np.transpose(data_array),principal_components)
 
-print(principal_components)
-print(principal_components.shape)
+print(x)
+print(x.shape)
 #np.savetxt("x.csv", x, delimiter=" ")
 #print(x.shape)
 
-plt.figure(figsize=(10,10))
-plt.scatter(principal_components[:,0],principal_components[:,1],cmap='plasma') #c=data_result,
+'''plt.figure(figsize=(10,10))
+plt.scatter(graph[:,0],graph[:,1],c=data_result,cmap='plasma')
 plt.xlabel('pc1')
 plt.ylabel('pc2')
-plt.show()
-#fig = plt.figure(figsize=(10,10))
+plt.show()'''
+fig = plt.figure(figsize=(10,10))
  
 # choose projection 3d for creating a 3d graph
-#axis = fig.add_subplot(111, projection='3d')
+axis = fig.add_subplot(111, projection='3d')
  
-# x[:,0]is pc1,x[:,1] is pc2 while x[:,2] is pc3
-#axis.scatter(x[:,0],x[:,1],x[:,2], c=data_result,cmap='plasma')
-#axis.set_xlabel("PC1", fontsize=10)
-#axis.set_ylabel("PC2", fontsize=10)
-#axis.set_zlabel("PC3", fontsize=10)
-#plt.show()
+#x[:,0]is pc1,x[:,1] is pc2 while x[:,2] is pc3
+axis.scatter(x[:,0],x[:,1],x[:,2], c=data_result,cmap='plasma')
+axis.set_xlabel("PC1", fontsize=10)
+axis.set_ylabel("PC2", fontsize=10)
+axis.set_zlabel("PC3", fontsize=10)
+plt.show()
