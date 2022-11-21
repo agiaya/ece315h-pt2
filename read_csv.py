@@ -69,6 +69,7 @@ class Subject:
         for i in range(n):
             for j in range(i,n):
                 list.append(self.distance(self.get_standardized_landmarks()[i],self.get_standardized_landmarks()[j]))
+        list = list + [self.get_expression()]
         return list
 
     def get_valence(self):
