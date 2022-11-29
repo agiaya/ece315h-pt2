@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from read_csv import Database
 
-data = Database("training_kindashort")
+data = Database("training_lessshort")
 data_array = data.return_array()
 data_targets = data.return_results()
 print(data_array.shape)
