@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from mpl_toolkits.mplot3d import Axes3D
-from read_csv import Database
+from read_csv import *
 
 data = Database("training_kindashort")
 data_array = np.transpose(data.return_array())
