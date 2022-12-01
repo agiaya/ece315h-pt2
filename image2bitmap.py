@@ -1,5 +1,5 @@
 # Python image to bitmap script
-
+# Jess was here
 import numpy as np
 from skimage import io 
 from skimage.transform import resize
