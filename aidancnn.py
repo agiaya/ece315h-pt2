@@ -62,7 +62,7 @@ print(np.argmax(predictions, axis=1)) # [7, 2, 1, 0, 4]
 print(test_labels[:5]) # [7, 2, 1, 0, 4]'''
 
 import numpy as np
-import mnist
+from read_csv import Database
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.utils import to_categorical
@@ -80,11 +80,13 @@ test_images = (test_images / 255) - 0.5
 train_images = train_images.reshape((-1, 784))
 test_images = test_images.reshape((-1, 784))'''
 
-data = Database("training_lessshort")
-data_array = data.return_array()
-data_targets = data.return_results()
-print(data_array.shape)
-print(data_targets.shape)
+train = Database("training_short")
+train_array = data.return_array()
+train_targets = data.return_results()
+print(train_array.shape)
+print(train_targets.shape)
+
+
 
 # Build the model.
 model = Sequential([
@@ -102,8 +104,8 @@ model.compile(
 
 # Train the model.
 model.fit(
-  train_images,
-  to_categorical(train_labels),
+  train_array,
+  train_targets,
   epochs=5,
   batch_size=32,
 )
