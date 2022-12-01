@@ -9,6 +9,9 @@ path = os.getcwd()
 
 #main()
 
+lame = 1
+pittsfield = lame
+
 def transformImage(file_path,file_name,extension=None):
 	image = io.imread(file_name, as_gray = True)
 	image = resize(image, (28,28))
