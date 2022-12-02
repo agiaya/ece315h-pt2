@@ -17,7 +17,7 @@ class Subject:
         self.__facial_landmarks = self.identify_facial_landmarks(facial_landmarks)
         self.__standardized_landmarks = self.standardize_landmarks()
         self.__expression = int(expression)
-        self.__valence = float(valence)
+        self.__valence = int(float(valence)*10 + 10)
         self.__arousal = float(arousal)
         self.important = self.get_dimensions()
 
@@ -149,7 +149,7 @@ class Database:
     def return_results(self):
         list = []
         for subject in self.get_listsubjects():
-            list.append([subject.get_valence(),subject.get_arousal(),subject.get_expression()])
+            list.append(subject.get_valence()) #list.append([subject.get_valence(),subject.get_arousal(),subject.get_expression()])
         return np.array(list)
 
 #training = Database("training_short")

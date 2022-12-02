@@ -80,19 +80,23 @@ test_images = (test_images / 255) - 0.5
 train_images = train_images.reshape((-1, 784))
 test_images = test_images.reshape((-1, 784))'''
 
-train = Database("training_short")
-train_array = data.return_array()
-train_targets = data.return_results()
+train = Database("training_kindashort")
+train_array = train.return_array()
+train_targets = train.return_results()
 print(train_array.shape)
 print(train_targets.shape)
 
-
+test = Database("test_short")
+test_array = test.return_array()
+test_targets = test.return_results()
+print(train_array.shape)
+print(train_targets.shape)
 
 # Build the model.
 model = Sequential([
-  Dense(64, activation='relu', input_shape=(784,)),
+  Dense(64, activation='relu', input_shape=(4692,)),
   Dense(64, activation='relu'),
-  Dense(10, activation='softmax'),
+  Dense(18, activation='softmax'),
 ])
 
 # Compile the model.
@@ -105,15 +109,15 @@ model.compile(
 # Train the model.
 model.fit(
   train_array,
-  train_targets,
+  to_categorical(train_targets),
   epochs=5,
   batch_size=32,
 )
 
 # Evaluate the model.
 model.evaluate(
-  test_images,
-  to_categorical(test_labels)
+  test_array,
+  to_categorical(test_targets)
 )
 
 # Save the model to disk.
@@ -123,10 +127,10 @@ model.save_weights('model.h5')
 # model.load_weights('model.h5')
 
 # Predict on the first 5 test images.
-predictions = model.predict(test_images[:5])
+predictions = model.predict(test_array[:20])
 
 # Print our model's predictions.
 print(np.argmax(predictions, axis=1)) # [7, 2, 1, 0, 4]
 
 # Check our predictions against the ground truths.
-print(test_labels[:5]) # [7, 2, 1, 0, 4]
+print(test_targets[:20]) # [7, 2, 1, 0, 4]
