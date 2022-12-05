@@ -4,3 +4,5 @@ img = dlib.load_rgb_image("C:\Users\15083\Desktop\Fall 2022\ECE H315 - Honors Pr
 win = dlib.image_window(img)
 detector = dlib.get_frontal_face_detector()
 face = detector(img)
+win.add_overlay(face)
+win.wait_until_closed()
