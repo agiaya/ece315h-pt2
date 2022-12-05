@@ -34,7 +34,7 @@ img= cv2.imread(image)
 imageRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 # landmarks of the face image  will be stored in output/image_k.txt
-faceLandmarksOuput= "output/image"
+faceLandmarksOuput= "image"
 
 # Now this line will try to detect all faces in an image either 1 or 2 or more faces
 allFaces = frontalFaceDetector(imageRGB, 0)
@@ -72,7 +72,7 @@ for k in range(0, len(allFaces)):
   writeFaceLandmarksToLocalFile(detectedLandmarks, fileName)
 
 #Name of the output file
-outputNameofImage = "output/image.jpg"
+outputNameofImage = "image.jpg"
 print("Saving output image to", outputNameofImage)
 cv2.imwrite(outputNameofImage, img)
 
