@@ -50,5 +50,5 @@ for (i, rect) in enumerate(rects):
 		cv2.circle(image, (x, y), 1, (0, 0, 255), -1)
 
 # show the output image with the face detections + facial landmarks
-cv2.imshow("Output", image)
-cv2.waitKey(0)
+'''cv2.imshow("Output", image)
+cv2.waitKey(0)'''
