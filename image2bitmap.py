@@ -1,5 +1,5 @@
 # Python image to bitmap script
-
+# Jess was here
 import numpy as np
 from skimage import io 
 from skimage.transform import resize
@@ -8,6 +8,8 @@ import os
 path = os.getcwd()
 
 #main()
+
+
 
 def transformImage(file_path,file_name,extension=None):
 	image = io.imread(file_name, as_gray = True)
