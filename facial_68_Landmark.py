@@ -4,6 +4,7 @@
 import dlib,cv2
 import numpy as np
 from facePoints import facePoints
+import sys
 
 def writeFaceLandmarksToLocalFile(faceLandmarks, fileName):
   with open(fileName, 'w') as f:
@@ -26,7 +27,7 @@ frontalFaceDetector = dlib.get_frontal_face_detector()
 faceLandmarkDetector = dlib.shape_predictor(Model_PATH)
 
 # We now reading image on which we applied our face detector
-image = "test.jpg"
+image = "0da9ef7c8f852bac98b57d03926465c7312bf0d9accf1a4d56667112.jpg"
 
 # Now we are reading image using openCV
 img= cv2.imread(image)
