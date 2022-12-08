@@ -8,3 +8,25 @@ basis pursuit
 matching pursuit
 
 group sparse linear regression where each emotion uses different coefficients
+
+12/5 Notes:
+-------------------------------------------------------------------------------------
+
+Sparse LinReg: 
+Use the weights from sparse linear regression to determine which columns to use  
+
+Neural Network:
+solvmax(w)i --> e^-wi / sum(e^-wi)
+sigmoid
+corentropy
+euclidean
+
+Look up classification/estimation/regression ML problems to find what to use instead of corentropy, corentropy is only for binary
+
+data: as many as you need for training, rest of testing, small sliver for validation
+
+For Valence/Arousal Values:
+try neural network
+something simple like SVM (support vector machines) or nearest neighbors could work
+
+trained the same way, Train, Test, Validate
