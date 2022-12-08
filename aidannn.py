@@ -80,7 +80,7 @@ test_images = (test_images / 255) - 0.5
 train_images = train_images.reshape((-1, 784))
 test_images = test_images.reshape((-1, 784))'''
 
-train = Database("training_lessshort")
+train = Database("training_kindashort")
 train_array = train.return_array()
 train_targets = train.return_result()
 print(train_array.shape)
@@ -96,6 +96,7 @@ print(train_targets.shape)
 model = Sequential([
   Dense(1028, activation='relu', input_shape=(4692,)),
   Dense(256, activation='relu'),
+  Dense(64, activation='relu'),
   Dense(64, activation='relu'),
   Dense(11, activation='softmax'),
 ])

@@ -4,6 +4,7 @@
 import dlib,cv2
 import numpy as np
 from facePoints import facePoints
+import sys
 
 def writeFaceLandmarksToLocalFile(faceLandmarks, fileName):
   with open(fileName, 'w') as f:
@@ -26,14 +27,14 @@ frontalFaceDetector = dlib.get_frontal_face_detector()
 faceLandmarkDetector = dlib.shape_predictor(Model_PATH)
 
 # We now reading image on which we applied our face detector
-image = "test.jpg"
+image = "0da9ef7c8f852bac98b57d03926465c7312bf0d9accf1a4d56667112.jpg"
 
 # Now we are reading image using openCV
 img= cv2.imread(image)
 imageRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 # landmarks of the face image  will be stored in output/image_k.txt
-faceLandmarksOuput= "output/image"
+faceLandmarksOuput= "image"
 
 # Now this line will try to detect all faces in an image either 1 or 2 or more faces
 allFaces = frontalFaceDetector(imageRGB, 0)
@@ -71,7 +72,7 @@ for k in range(0, len(allFaces)):
   writeFaceLandmarksToLocalFile(detectedLandmarks, fileName)
 
 #Name of the output file
-outputNameofImage = "output/image.jpg"
+outputNameofImage = "image.jpg"
 print("Saving output image to", outputNameofImage)
 cv2.imwrite(outputNameofImage, img)
 
