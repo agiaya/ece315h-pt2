@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+import sys
 
 
 class Subject:
@@ -110,7 +111,10 @@ class Database:
         return string
 
     def readfile(self):
-        file = open(self.__filename, 'r')
+        try: file = open(self.__filename, 'r')
+        except:
+            print("File does not exist")
+            sys.exit(0)
         firstline = True
         i = 0
         for line in file:
