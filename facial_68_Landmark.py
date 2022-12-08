@@ -101,4 +101,4 @@ width = int(allFaces[0].right()) - int(allFaces[0].left()) #works
 height = int(allFaces[0].bottom()) - int(allFaces[0].top()) #works
 #print(height)
 
-print(fileName)
+#print(fileName)
