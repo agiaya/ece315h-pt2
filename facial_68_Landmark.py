@@ -81,3 +81,24 @@ cv2.imshow("Face landmark result", img)
 # Pause screen to wait key from user to see result
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# Organizing ouputs
+'''
+Top Left corner
+face width
+face height
+list of 68 coordinates
+'''
+# Get Top Left Corner
+topLeft = [int(allFaces[0].left()) , int(allFaces[0].top())] #works
+#print(topLeft)
+
+# Get Face Width
+width = int(allFaces[0].right()) - int(allFaces[0].left()) #works
+#print(width)
+
+# Get Face Height
+height = int(allFaces[0].bottom()) - int(allFaces[0].top()) #works
+#print(height)
+
+#print(fileName)
