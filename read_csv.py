@@ -127,14 +127,17 @@ class Database:
                 self.__listsubjects.append(Subject("subject" + str(i), subDirectory_filePath, face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal))
             i += 1
         file.close()
+
     def get_listsubjects(self):
         return self.__listsubjects
+
     def return_array(self):
         list = []
         for subject in self.get_listsubjects():
             list.append(subject.important) # + [subject.get_expression()]
         array = np.array(list)
         return array
+
     def return_emotion(self):
         list = []
         list1 = self.return_array()
@@ -149,26 +152,3 @@ class Database:
         for subject in self.get_listsubjects():
             list.append(subject.get_expression())
         return np.array(list)
-
-    def return_results(self):
-        list = []
-        for subject in self.get_listsubjects():
-            list.append(subject.get_valence()) #list.append([subject.get_valence(),subject.get_arousal(),subject.get_expression()])
-        return np.array(list)
-
-#training = Database("training_short")
-#array1 = np.array([[2,1,2,2],[4,5,5,4]])
-#array = training.return_array()
-#print(array)
-#print(array.shape)
-
-
-#x,y = training.get_listsubjects()[10].get_points()
-
-#plt.plot(x,y,marker=".")
-#plt.show()
-# test again
-
-
-#for subject in training.get_listsubjects():
-    #print(subject.important)
