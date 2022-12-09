@@ -94,10 +94,13 @@ print(train_targets.shape)
 
 # Build the model.
 model = Sequential([
-  Dense(1028, activation='relu', input_shape=(4692,)),
+  Dense(2048, activation='relu', input_shape=(4692,)),
+  Dense(1024, activation='relu'),
+  Dense(512, activation='relu'),
   Dense(256, activation='relu'),
+  Dense(128, activation='relu'),
   Dense(64, activation='relu'),
-  Dense(64, activation='relu'),
+  Dense(32, activation='relu'),
   Dense(11, activation='softmax'),
 ])
 
