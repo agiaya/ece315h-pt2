@@ -68,34 +68,21 @@ from keras.layers import Dense
 from keras.optimizers import RMSprop
 from keras.utils import normalize
 
-'''train_images = mnist.train_images()
-train_labels = mnist.train_labels()
-test_images = mnist.test_images()
-test_labels = mnist.test_labels()
-
-# Normalize the images.
-train_images = (train_images / 255) - 0.5
-test_images = (test_images / 255) - 0.5
-
-# Flatten the images.
-train_images = train_images.reshape((-1, 784))
-test_images = test_images.reshape((-1, 784))'''
-
-train = Database("training")
+train = Database("training_exp")
 train_array = train.return_array()
-train_targets = train.return_target()
+train_targets = train.return_valence()
 print(train_array.shape)
 print(train_targets.shape)
 
 test = Database("test_short")
 test_array = test.return_array()
-test_targets = test.return_target()
+test_targets = test.return_valence()
 print(train_array.shape)
 print(train_targets.shape)
 
 # Build the model.
 model = Sequential([
-  Dense(64, kernel_initializer = 'normal', activation='relu', input_shape=(32,)),
+  Dense(64, kernel_initializer = 'normal', activation='relu', input_shape=(68,)),
   Dense(64, activation='relu'),
   Dense(1, activation='linear'),
 ])
