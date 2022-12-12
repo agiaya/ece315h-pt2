@@ -69,13 +69,13 @@ from keras.optimizers import RMSprop
 from keras.utils import normalize
 
 train = Database("training_exp")
-train_array = train.return_array()
+train_array = train.return_vector()
 train_targets = train.return_valence()
 print(train_array.shape)
 print(train_targets.shape)
 
 test = Database("test_short")
-test_array = test.return_array()
+test_array = test.return_vector()
 test_targets = test.return_valence()
 print(train_array.shape)
 print(train_targets.shape)
