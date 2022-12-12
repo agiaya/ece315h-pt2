@@ -80,11 +80,7 @@ test_images = (test_images / 255) - 0.5
 train_images = train_images.reshape((-1, 784))
 test_images = test_images.reshape((-1, 784))'''
 
-<<<<<<< HEAD
 train = Database("training")
-=======
-train = Database("training_10000")
->>>>>>> 40593d367599c283c9164b7161073e3a480c7808
 train_array = train.return_array()
 train_targets = train.return_target()
 print(train_array.shape)
