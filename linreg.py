@@ -2,11 +2,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from read_csv import Database
+from readCSV import Database
 
-data = Database("training_lessshort")
+data = Database("training")
 data_array = data.return_array()
-data_targets = data.return_results()
+data_targets = data.return_target()
 print(data_array.shape)
 print(data_targets.shape)
 
