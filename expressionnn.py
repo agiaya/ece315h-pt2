@@ -110,7 +110,7 @@ model.compile(
 model.fit(
   train_array,
   to_categorical(train_targets),
-  epochs=20,
+  epochs=5,
   batch_size=32,
 )
 
