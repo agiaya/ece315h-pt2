@@ -62,10 +62,11 @@ print(np.argmax(predictions, axis=1)) # [7, 2, 1, 0, 4]
 print(test_labels[:5]) # [7, 2, 1, 0, 4]'''
 
 import numpy as np
-from read_csv import Database
+from readCSV import Database
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.utils import to_categorical
+from keras.optimizers import RMSprop
+from keras.utils import normalize
 
 '''train_images = mnist.train_images()
 train_labels = mnist.train_labels()
@@ -80,49 +81,44 @@ test_images = (test_images / 255) - 0.5
 train_images = train_images.reshape((-1, 784))
 test_images = test_images.reshape((-1, 784))'''
 
-train = Database("training_kindashort")
+train = Database("training_exp")
 train_array = train.return_array()
-train_targets = train.return_result()
+train_targets = train.return_target()
 print(train_array.shape)
 print(train_targets.shape)
 
 test = Database("test_short")
 test_array = test.return_array()
-test_targets = test.return_result()
+test_targets = test.return_target()
 print(train_array.shape)
 print(train_targets.shape)
 
 # Build the model.
 model = Sequential([
-  Dense(2048, activation='relu', input_shape=(4692,)),
-  Dense(1024, activation='relu'),
-  Dense(512, activation='relu'),
-  Dense(256, activation='relu'),
-  Dense(128, activation='relu'),
+  Dense(64, kernel_initializer = 'normal', activation='relu', input_shape=(32,)),
   Dense(64, activation='relu'),
-  Dense(32, activation='relu'),
-  Dense(11, activation='softmax'),
+  Dense(1, activation='linear'),
 ])
 
 # Compile the model.
 model.compile(
-  optimizer='adam',
-  loss='categorical_crossentropy',
-  metrics=['accuracy'],
+  optimizer=RMSprop(),
+  loss='mse',
+  metrics=['mean_absolute_error'],
 )
 
 # Train the model.
 model.fit(
   train_array,
-  to_categorical(train_targets),
-  epochs=5,
+  train_targets,
+  epochs=10,
   batch_size=32,
 )
 
 # Evaluate the model.
 model.evaluate(
   test_array,
-  to_categorical(test_targets)
+  test_targets
 )
 
 # Save the model to disk.
