@@ -14,7 +14,8 @@ class Subject:
         self.__expression = int(expression)
         self.__valence = float(valence)
         self.__arousal = float(arousal)
-        self.array = self.get_dimensions()
+        self.vector = self.get_dimensions_vector()
+        self.array = self.get_dimensions_array()
 
     def identify_facial_landmarks(self, string):
         coordinates = string.rstrip().split(';')
@@ -37,11 +38,17 @@ class Subject:
     def get_standardized_landmarks(self):
         return self.__standardized_landmarks
 
-    def get_dimensions(self):
+    def get_dimensions_vector(self):
         list = []
-        for subject in self.get_standardized_landmarks():
+        for dimension in self.get_standardized_landmarks():
             #list.append(subject[0])
-            list.append(subject[1])
+            list.append(dimension[1])
+        return list
+
+    def get_dimensions_array(self):
+        list = []
+        for dimension in self.get_standardized_landmarks():
+            list.append([dimension[0],dimension[1]])
         return list
 
     def get_valence(self):
@@ -73,17 +80,17 @@ class Database:
             else:
                 line.rstrip()
                 subDirectory_filePath, face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal = line.split(',')
-                #if float(valence) > -2 and float(arousal) > -2:
-                self.__listsubjects.append(Subject(face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal))
+                if float(valence) > -2 and float(arousal) > -2:
+                    self.__listsubjects.append(Subject(face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal))
         file.close()
 
     def get_listsubjects(self):
         return self.__listsubjects
 
-    def return_array(self):
+    def return_vector(self):
         list = []
         for subject in self.get_listsubjects():
-            list.append(subject.array)
+            list.append(subject.vector)
         return np.array(list)
 
     def return_target(self):
@@ -91,3 +98,16 @@ class Database:
         for subject in self.get_listsubjects():
             list.append(subject.get_expression())
         return np.array(list)
+
+    def return_valence(self):
+        list = []
+        for subject in self.get_listsubjects():
+            list.append(subject.get_valence())
+        return np.array(list)
+
+    def return_array(self):
+        list = []
+        for subject in self.get_listsubjects():
+            list.append(subject.array)
+        return np.array(list)
+

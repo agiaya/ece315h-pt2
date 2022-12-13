@@ -80,14 +80,14 @@ test_images = (test_images / 255) - 0.5
 train_images = train_images.reshape((-1, 784))
 test_images = test_images.reshape((-1, 784))'''
 
-train = Database("training_10000")
-train_array = train.return_array()
+train = Database("training")
+train_array = train.return_vector()
 train_targets = train.return_target()
 print(train_array.shape)
 print(train_targets.shape)
 
 test = Database("test_short")
-test_array = test.return_array()
+test_array = test.return_vector()
 test_targets = test.return_target()
 print(train_array.shape)
 print(train_targets.shape)
