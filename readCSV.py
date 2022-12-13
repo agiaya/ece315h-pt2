@@ -41,14 +41,14 @@ class Subject:
     def get_dimensions_vector(self):
         list = []
         for dimension in self.get_standardized_landmarks():
-            #list.append(subject[0])
             list.append(dimension[1])
         return list
 
     def get_dimensions_array(self):
         list = []
         for dimension in self.get_standardized_landmarks():
-            list.append([dimension[0],dimension[1]])
+            list.append(dimension[0])
+            list.append(dimension[1])
         return list
 
     def get_valence(self):
