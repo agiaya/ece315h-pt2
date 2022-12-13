@@ -28,7 +28,7 @@ model = Sequential([
 # Compile the model.
 model.compile(
   optimizer='nadam',
-  loss='logcosh',
+  loss='mse',
   metrics=['mean_absolute_error'],
 )
 

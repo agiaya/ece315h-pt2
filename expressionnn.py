@@ -4,7 +4,6 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import Nadam
 from keras.utils import to_categorical
-from keras.losses import kl_divergence
 
 train = Database("training_exp")
 train_array = train.return_vector()
@@ -26,8 +25,8 @@ model = Sequential([
 
 # Compile the model.
 model.compile(
-  optimizer='adam',
-  loss='kl_divergence',
+  optimizer='nadam',
+  loss='categorical_crossentropy',
   metrics=['accuracy'],
 )
 

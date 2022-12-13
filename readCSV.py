@@ -80,8 +80,8 @@ class Database:
             else:
                 line.rstrip()
                 subDirectory_filePath, face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal = line.split(',')
-                if float(valence) > -2 and float(arousal) > -2:
-                    self.__listsubjects.append(Subject(face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal))
+                #if float(valence) > -2 and float(arousal) > -2:
+                self.__listsubjects.append(Subject(face_x, face_y, face_width, face_height, facial_landmarks, expression, valence, arousal))
         file.close()
 
     def get_listsubjects(self):

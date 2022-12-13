@@ -10,10 +10,7 @@ from keras.utils import to_categorical
 
 # Initialize Model
 model = Sequential([
-  Dense(1028, activation='relu', input_shape=(4692,)),
-  Dense(256, activation='relu'),
-  Dense(64, activation='relu'),
-  Dense(64, activation='relu'),
+  Dense(64, activation='relu', input_shape=(68,)),
   Dense(11, activation='softmax'),
 ])
 
