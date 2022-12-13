@@ -16,3 +16,5 @@ model = Sequential([
 
 model.load_weights('model.h5')
 
+tL = topLeft
+print(tL)
