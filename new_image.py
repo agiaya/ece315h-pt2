@@ -16,5 +16,10 @@ model = Sequential([
 
 model.load_weights('model.h5')
 
-tL = topLeft
-print(tL)
+file = open("image_0.txt",'r')
+vector = []
+for line in file:
+  line.rstrip('\n')
+  x,y = line.split()
+
+subject = Subject(topLeft[0],topLeft[1],width,height,)

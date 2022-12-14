@@ -47,7 +47,7 @@ model.evaluate(
 )
 
 # Save the model to disk.
-model.save_weights('model.h5')
+model.save_weights('valencemodel.h5')
 
 # Load the model from disk later using:
 # model.load_weights('model.h5')
